@@ -8,6 +8,8 @@ var applicationId = '9d0673fa-34d6-4124-a5f2-163350e333fc'; // Application Id of
 var clientSecret = '6rujU/1F/FnjENR1w1s05XWX6a+DdxBFCELsJM3AAWs='; // Secret generated for app. Read this environment variable.
 var resource = '00000002-0000-0000-c000-000000000000'; // URI that identifies the resource for which the token is valid.
 
+
+
 const userRoutes = (app, fs) => {
 
     // variables
@@ -80,7 +82,8 @@ const userRoutes = (app, fs) => {
 
 
                 //res.send(jsonres.value[1].signInNames[0].value);
-                res.send(arrsignInNamres);
+                //res.send(arrsignInNamres);
+                res.render('index',{names:arrsignInNamres});
                 
                 }
             }
