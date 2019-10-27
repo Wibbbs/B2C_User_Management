@@ -43,7 +43,7 @@ const userRoutes = (app, fs) => {
                 function callback(error, response, body) {
                     if (!error && response.statusCode == 200) {
                     jsonres = JSON.parse(body);
-                    //console.log(jsonres);
+                    console.log(jsonres);
                     //console.log(info.stargazers_count + " Stars");
                     //console.log(info.forks_count + " Forks");
 
@@ -51,8 +51,15 @@ const userRoutes = (app, fs) => {
                     var arrsignInNamres = [];
 
                     for(var i = 0; i < arrValues.length; i++ ){
-                        if (arrValues[i].signInNames[0]) {
+                        //For Signin Names (some users domt have signinnames)
+                        /*if (arrValues[i].signInNames[0]) {
                             arrsignInNamres.push(arrValues[i].signInNames[0].value);
+                            console.log(arrsignInNamres[i]);
+                        }*/
+
+                        //For display names
+                        if (arrValues[i].displayName) {
+                            arrsignInNamres.push(arrValues[i].displayName);
                             console.log(arrsignInNamres[i]);
                         }
                     }
@@ -60,7 +67,7 @@ const userRoutes = (app, fs) => {
 
                     //res.send(jsonres.value[1].signInNames[0].value);
                     //res.send(arrsignInNamres);
-                    res.render('index',{names:arrsignInNamres});
+                    res.render('listusers',{names:arrsignInNamres});
                     
                     }
                 }
