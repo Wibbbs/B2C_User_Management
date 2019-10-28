@@ -9,7 +9,7 @@ jsonTemp = {
         {
             "odata.type": "Microsoft.DirectoryServices.User",
             "objectType": "User",
-            "objectId": "97977711-fdab-49f8-9f1f-447c99e168d4",
+            "objectId": "f1936d29-4fb2-4a77-95f6-650c17af3fc8",
             "deletionTimestamp": null,
             "accountEnabled": true,
             "ageGroup": null,
@@ -19,47 +19,54 @@ jsonTemp = {
             "companyName": null,
             "consentProvidedForMinor": null,
             "country": null,
-            "createdDateTime": "2019-10-23T20:17:28Z",
-            "creationType": null,
+            "createdDateTime": "2019-10-26T22:54:25Z",
+            "creationType": "LocalAccount",
             "department": null,
             "dirSyncEnabled": null,
-            "displayName": "andrew.wiebe@senecacollege.ca",
+            "displayName": "Eillen Wan",
             "employeeId": null,
             "facsimileTelephoneNumber": null,
-            "givenName": "andrew.wiebe@senecacollege.ca",
+            "givenName": null,
             "immutableId": null,
             "isCompromised": null,
             "jobTitle": null,
             "lastDirSyncTime": null,
             "legalAgeGroupClassification": null,
             "mail": null,
-            "mailNickname": "andrew.wiebe_senecacollege.ca#EXT#",
+            "mailNickname": "f1936d29-4fb2-4a77-95f6-650c17af3fc8",
             "mobile": null,
             "onPremisesDistinguishedName": null,
             "onPremisesSecurityIdentifier": null,
-            "otherMails": [
-              "andrew.wiebe@senecacollege.ca"
-            ],
+            "otherMails": [],
             "passwordPolicies": null,
-            "passwordProfile": null,
+            "passwordProfile": {
+              "password": null,
+              "forceChangePasswordNextLogin": true,
+              "enforceChangePasswordPolicy": false
+            },
             "physicalDeliveryOfficeName": null,
             "postalCode": null,
             "preferredLanguage": null,
             "provisionedPlans": [],
             "provisioningErrors": [],
             "proxyAddresses": [],
-            "refreshTokensValidFromDateTime": "2019-10-23T20:17:25Z",
+            "refreshTokensValidFromDateTime": "2019-10-26T22:54:24Z",
             "showInAddressList": null,
-            "signInNames": [],
+            "signInNames": [
+                {
+                  "type": "emailaddress",
+                  "value": "HardCodedUser2@nodeapp.com"
+                }
+              ],
             "sipProxyAddress": null,
             "state": null,
             "streetAddress": null,
-            "surname": "Wiebe",
+            "surname": null,
             "telephoneNumber": null,
-            "thumbnailPhoto@odata.mediaEditLink": "directoryObjects/97977711-fdab-49f8-9f1f-447c99e168d4/Microsoft.DirectoryServices.User/thumbnailPhoto",
+            "thumbnailPhoto@odata.mediaEditLink": "directoryObjects/f1936d29-4fb2-4a77-95f6-650c17af3fc8/Microsoft.DirectoryServices.User/thumbnailPhoto",
             "usageLocation": null,
             "userIdentities": [],
-            "userPrincipalName": "andrew.wiebe_senecacollege.ca#EXT#@andrewtestingb2c.onmicrosoft.com",
+            "userPrincipalName": "f1936d29-4fb2-4a77-95f6-650c17af3fc8@andrewtestingb2c.onmicrosoft.com",
             "userState": null,
             "userStateChangedOn": null,
             "userType": "Member"
@@ -109,7 +116,7 @@ const userRoutes = (app, fs) => {
                 function callback(error, response, body) {
                     if (!error && response.statusCode == 200) {
                     jsonres = JSON.parse(body);
-                    console.log(jsonres);
+                    //console.log(jsonres);
                     //console.log(info.stargazers_count + " Stars");
                     //console.log(info.forks_count + " Forks");
 
@@ -136,7 +143,7 @@ const userRoutes = (app, fs) => {
                     //res.render('listusers',{names:arrsignInNamres});
                     
                     //res.send(jsonTemp);
-                    res.render('index.pug',{data:jsonres.value})
+                    res.render('userlist.pug',{data:jsonres.value})
                     }
                 }
                 

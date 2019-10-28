@@ -1,0 +1,23 @@
+extends layout.pug
+
+block content
+  table.ui.celled.table.center.aligned
+    thead
+      tr
+        th ObjectID
+        th Created Date/Time
+        th DisplayName
+        th Sign In Name
+    tbody
+      each user in data
+        tr
+          td #{user.objectId}
+          td #{user.createdDateTime}
+          td #{user.displayName}
+          if user.signInNames.length
+            td #{user.signInNames[0].value}
+          else
+            td No signInNames
+    tfoot
+      tr
+        th(colspan='6')
