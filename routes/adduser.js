@@ -60,7 +60,9 @@ const userRoutes = (app, fs) => {
                                 res.send(body["odata.error"].message.value);
                             }
                             else{
-                                res.send(body);
+                                //res.send(body);
+                                res.redirect('/users');
+                                
                             }
 
                             
