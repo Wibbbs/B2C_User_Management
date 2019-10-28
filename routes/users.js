@@ -1,5 +1,71 @@
 var AuthenticationContext = require('adal-node').AuthenticationContext;
 var request = require('request');
+
+jsonTemp = new Object()
+
+jsonTemp = {
+    "odata.metadata": "https://graph.windows.net/andrewtestingb2c.onmicrosoft.com/$metadata#directoryObjects",
+    "value": [
+        {
+            "odata.type": "Microsoft.DirectoryServices.User",
+            "objectType": "User",
+            "objectId": "97977711-fdab-49f8-9f1f-447c99e168d4",
+            "deletionTimestamp": null,
+            "accountEnabled": true,
+            "ageGroup": null,
+            "assignedLicenses": [],
+            "assignedPlans": [],
+            "city": null,
+            "companyName": null,
+            "consentProvidedForMinor": null,
+            "country": null,
+            "createdDateTime": "2019-10-23T20:17:28Z",
+            "creationType": null,
+            "department": null,
+            "dirSyncEnabled": null,
+            "displayName": "andrew.wiebe@senecacollege.ca",
+            "employeeId": null,
+            "facsimileTelephoneNumber": null,
+            "givenName": "andrew.wiebe@senecacollege.ca",
+            "immutableId": null,
+            "isCompromised": null,
+            "jobTitle": null,
+            "lastDirSyncTime": null,
+            "legalAgeGroupClassification": null,
+            "mail": null,
+            "mailNickname": "andrew.wiebe_senecacollege.ca#EXT#",
+            "mobile": null,
+            "onPremisesDistinguishedName": null,
+            "onPremisesSecurityIdentifier": null,
+            "otherMails": [
+              "andrew.wiebe@senecacollege.ca"
+            ],
+            "passwordPolicies": null,
+            "passwordProfile": null,
+            "physicalDeliveryOfficeName": null,
+            "postalCode": null,
+            "preferredLanguage": null,
+            "provisionedPlans": [],
+            "provisioningErrors": [],
+            "proxyAddresses": [],
+            "refreshTokensValidFromDateTime": "2019-10-23T20:17:25Z",
+            "showInAddressList": null,
+            "signInNames": [],
+            "sipProxyAddress": null,
+            "state": null,
+            "streetAddress": null,
+            "surname": "Wiebe",
+            "telephoneNumber": null,
+            "thumbnailPhoto@odata.mediaEditLink": "directoryObjects/97977711-fdab-49f8-9f1f-447c99e168d4/Microsoft.DirectoryServices.User/thumbnailPhoto",
+            "usageLocation": null,
+            "userIdentities": [],
+            "userPrincipalName": "andrew.wiebe_senecacollege.ca#EXT#@andrewtestingb2c.onmicrosoft.com",
+            "userState": null,
+            "userStateChangedOn": null,
+            "userType": "Member"
+          }
+    ]
+}
  
 var authorityHostUrl = 'https://login.windows.net';
 var tenant = 'andrewtestingb2c.onmicrosoft.com'; // AAD Tenant name.
@@ -67,8 +133,10 @@ const userRoutes = (app, fs) => {
 
                     //res.send(jsonres.value[1].signInNames[0].value);
                     //res.send(arrsignInNamres);
-                    res.render('listusers',{names:arrsignInNamres});
+                    //res.render('listusers',{names:arrsignInNamres});
                     
+                    //res.send(jsonTemp);
+                    res.render('index.pug',{data:jsonres.value})
                     }
                 }
                 

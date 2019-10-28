@@ -1,0 +1,13 @@
+doctype html
+html(lang='en')
+    head
+        title Staff Directory  
+    body
+       each value in data
+            each user in value
+                p #{user.objectId}
+                p #{user.createdDateTime}
+                p #{user.displayName} 
+                each signInNames in user.signInNames
+                    p #{signInNames.value}
+

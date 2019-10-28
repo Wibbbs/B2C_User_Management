@@ -9,12 +9,14 @@
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "nodemon": "^1.19.4",
+    "pug": "^2.0.4",
+    "pug-cli": "^1.0.0-alpha6",
     "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js -e js,ejs,json"
+    "start": "nodemon server.js -e js,ejs,json,pug"
   },
   "author": "",
   "license": "ISC"
