@@ -1,3 +1,5 @@
+const port = process.env.PORT || 3001;
+
 // load up the express framework and body-parser helper
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -20,6 +22,6 @@ app.set('view engine', 'pug');
 const routes = require('./routes/routes.js')(app, fs);
 
 // finally, launch our server on port 3001.
-const server = app.listen(3001, () => {
+const server = app.listen(port, () => {
     console.log('listening on port %s...', server.address().port);
 });
