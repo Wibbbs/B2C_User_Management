@@ -8,7 +8,9 @@ const appRouter = (app, fs) => {
     // at the base API url
     app.get('/', (req, res) => {
         //res.render('home');
-        res.render('home.ejs');
+        //res.render('home.ejs');
+        res.render('layout.pug');
+        
     });
 
 

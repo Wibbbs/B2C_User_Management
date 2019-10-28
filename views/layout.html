@@ -2,30 +2,51 @@
 <html>
   <head>
     <title>Staff Directory</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/419c186f24.js" crossorigin="anonymous"></script>
     <style>
-      table.ui.celled img { display: inline-block; }
-      footer { margin: 35px 0 15px 0; text-align: center }
-      body { padding-top: 50px; }
+      .center{display:flex; justify-content: center; align-items: center;}
       
     </style>
   </head>
-  <header>
-    <div class="container-fluid"></div>
-    <div class="navbar-header">
-      <ul> 
-        <li><a href="/">Home</a></li>
-        <li><a href="/users">User List</a></li>
-        <li><a href="/adduser">Add User</a></li>
-      </ul>
-      <h1 class="ui center aligned header">Staff Directory</h1>
-      <div class="ui container"></div>
-    </div>
-  </header>
   <body>
-    <footer>
-      <p>© 2019 My Company</p>
-    </footer>
+    <section class="hero has-background-black">
+      <div class="hero-body">
+        <div class="container">
+          <figure class="image"><img src="images/seneca-logo.svg" style="max-width: 256px;"></figure>
+          <div class="content has-text-white">
+            <p class="is-size-4">College of Applied Arts and Techonology</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="notification is-danger"><span class="content">
+            <p class="has-text-white is-size-3 has-text-centered">Agent Portal B2C Account Management</p></span></div>
+      </div>
+      <div class="container">
+        <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+          <div class="navbar-menu">
+            <div class="navbar-start"><a class="navbar-item"><span class="icon"><i class="fas fa-home"> </i></span><span class="content">Home</span></a><a class="navbar-item"><span class="icon"><i class="fas fa-address-book"> </i></span><span class="content">User List</span></a><a class="navbar-item"><span class="icon"><i class="fas fa-user-plus"> </i></span><span class="content">New User</span></a></div>
+          </div>
+        </nav>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-one-third"> 
+            <div class="notification is-info has-text-centered">TESTING Column 1</div>
+          </div>
+          <div class="column is-one-third">
+            <div class="notification is-warning has-text-centered">Testing Column 2</div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
+  <footer>
+    <p>© 2019 My Company</p>
+  </footer>
 </html>

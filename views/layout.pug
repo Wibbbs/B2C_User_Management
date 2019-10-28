@@ -2,22 +2,51 @@ doctype html
 html
     head
         title Staff Directory
-        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css')
+        script(src='https://kit.fontawesome.com/419c186f24.js', crossorigin="anonymous")
         style.
-            table.ui.celled img { display: inline-block; }
-            footer { margin: 35px 0 15px 0; text-align: center }
+            .center{display:flex; justify-content: center; align-items: center;}
 
     body
-    header
-        div(class='ui container')
-            ul
-            li: a(href='/') Home
-            li: a(href='/users') List Users
-            li: a(href='/adduser') Add Users
+        section(class='hero has-background-black')
+            div(class='hero-body')
+                div(class='container')
+                    figure(class='image')
+                        img(src='images/seneca-logo.svg', style='max-width: 256px;')
+                    div(class='content has-text-white')
+                        p(class='is-size-4') College of Applied Arts and Techonology
+        
+        section(class='section')
+            div(class='container')
+                div(class='notification is-danger')
+                    span(class='content')
+                       p(class='has-text-white is-size-3 has-text-centered') Agent Portal B2C Account Management
+            div(class='container')
+                nav(class='navbar is-transparent', role='navigation', aria-label='main navigation')
+                    div(class='navbar-menu')
+                        div(class='navbar-start')
+                            a(class='navbar-item')
+                                span(class='icon')
+                                    i(class='fas fa-home') 
+                                span(class='content') Home
+                            a(class='navbar-item')
+                                span(class='icon')
+                                    i(class='fas fa-address-book') 
+                                span(class='content') User List
+                            a(class='navbar-item')
+                                span(class='icon')
+                                    i(class='fas fa-user-plus') 
+                                span(class='content') New User
 
-    main#main
-    h1.ui.center.aligned.header Staff Directory
-    .ui.container
+                    
+
+        section(class='section')
+            div(class='container')
+                div(class='columns is-centered')
+                    div(class='column is-one-third') 
+                        div(class='notification is-info has-text-centered') TESTING Column 1
+                    div(class='column is-one-third')
+                        div(class='notification is-warning has-text-centered') Testing Column 2
 
         block content
 

@@ -15,6 +15,7 @@ const fs = require('fs');
 // including handling JSON data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'))
 app.set('view engine', 'ejs');
 app.set('view engine', 'pug');
 
