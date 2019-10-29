@@ -1,1 +1,3 @@
 pug -w ./views -o ./views -P
+
+test pipelines
