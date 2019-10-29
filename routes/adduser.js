@@ -89,7 +89,7 @@ const userRoutes = (app, fs) => {
         // var context = new AuthenticationContext(authorityUrl);
         //var tokenstring;
 
-        res.render('adduser.ejs')
+        res.render('adduser.pug')
 
         /* context.acquireTokenWithClientCredentials(resource, applicationId, clientSecret, function (err, tokenResponse) {
              if (err) {

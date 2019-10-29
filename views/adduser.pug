@@ -3,5 +3,36 @@ extends layout.pug
 block content
     div(class='container')
         div(class='columns is-centered')
-            div(class='column')
+            div(class='column is-one-third')
+                
+                br
+                form(action='/adduser' method='post')
+                    div(class='field')
+                        label(class='label') Email Address
+                        div(class='control has-icons-left')
+                            input(class='input is-danger' type='Email Address' placeholder='Enter Email Address' name='email' id='email_input' oninput='validateForm()' required)
+                            span(class='icon is-small is-left')
+                                i(class='fas fa-envelope')
+                            p(class='help is-danger' id='email_label') Not a valid Email
+                    p(class="is-size-7") Password must have a minimum 8 characters and maximum 64 characters in length and include 3 of 4 following character classes - uppercase, lowercase, number, symbol. If complexity is not met you will recive an error on the next page.
+                    br
+                    div(class='field')
+                        label(class='label') Password
+                        div(class='control')
+                            input(class='input' type='password' placeholder='Password' name='password' id='password' onkeyup='validateForm()' required)
+                    div(class='field')
+                        label(class='label') Confirm Password
+                        div(class='control')
+                            input(class='input is-danger' type='password' placeholder='Confirm Password' name='confirm_password' id='confirm_password' onkeyup='validateForm()' required)
+                            span(id=message)
+                            p(class='help is-danger' id='conflabel') Passwords Do Not Match
+                    div(class='field')
+                        label(class='label') Display Name
+                        div(class='control')
+                            input(class='input' type='text' placeholder='Display Name' name='displayName' required)
+                    div(class='field is-grouped is-grouped-centered')
+                        div(class='control')
+                            button(class='button is-link' id='button' disabled) Submit
+    script(src='javascript/confirmpassword.js')
+
                 
