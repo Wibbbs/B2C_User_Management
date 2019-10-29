@@ -9,7 +9,7 @@ const appRouter = (app, fs) => {
     app.get('/', (req, res) => {
         //res.render('home');
         //res.render('home.ejs');
-        res.render('layout.pug');
+        res.render('home.pug');
         
     });
 

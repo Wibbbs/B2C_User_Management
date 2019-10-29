@@ -143,7 +143,7 @@ const userRoutes = (app, fs) => {
                     //res.render('listusers',{names:arrsignInNamres});
                     
                     //res.send(jsonTemp);
-                    res.render('userlist.pug',{data:jsonres.value})
+                    res.render('userlist.pug',{data:jsonres.value,tenant:tenant})
                     }
                 }
                 

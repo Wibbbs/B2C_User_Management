@@ -1,7 +1,7 @@
 doctype html
 html
     head
-        title Staff Directory
+        title B2C Account Management
         link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css')
         script(src='https://kit.fontawesome.com/419c186f24.js', crossorigin="anonymous")
         style.
@@ -18,38 +18,30 @@ html
         
         section(class='section')
             div(class='container')
-                div(class='notification is-danger')
+                div(class='notification is-link')
                     span(class='content')
-                       p(class='has-text-white is-size-3 has-text-centered') Agent Portal B2C Account Management
+                       p(class='is-size-4') Agent Portal B2C Account Management
             div(class='container')
-                nav(class='navbar is-transparent', role='navigation', aria-label='main navigation')
-                    div(class='navbar-menu')
+                nav(class='navbar is-light', role='navigation', aria-label='main navigation')
+                    div(id='mainNavBar', class='navbar-menu is-active')
                         div(class='navbar-start')
-                            a(class='navbar-item')
+                            a(class='navbar-item' href='/')
                                 span(class='icon')
                                     i(class='fas fa-home') 
                                 span(class='content') Home
-                            a(class='navbar-item')
+                            a(class='navbar-item' href='/users')
                                 span(class='icon')
                                     i(class='fas fa-address-book') 
                                 span(class='content') User List
-                            a(class='navbar-item')
+                            a(class='navbar-item' href='/adduser')
                                 span(class='icon')
                                     i(class='fas fa-user-plus') 
                                 span(class='content') New User
 
-                    
-
-        section(class='section')
-            div(class='container')
-                div(class='columns is-centered')
-                    div(class='column is-one-third') 
-                        div(class='notification is-info has-text-centered') TESTING Column 1
-                    div(class='column is-one-third')
-                        div(class='notification is-warning has-text-centered') Testing Column 2
-
         block content
 
-    block footer
-        footer
-            p © #{new Date().getFullYear()} My Company
+    footer(class=footer)
+        br
+        br
+        div(class='content has-text-centered')
+            p © #{new Date().getFullYear()} Andrew Wiebe

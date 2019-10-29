@@ -1,0 +1,56 @@
+extends layout.pug
+
+block content
+    div(class='container')
+        div(class='columns is-centered')
+            div(class='column') 
+                div(class='notification') 
+                    p(class='is-size-4') Welcome
+                    br
+                    p(class='is-size-5')
+                        |This site was built as a learning project to learn web development.
+                        |I had a need to test and use some Microsoft Azure B2C APIs.
+                        |Once I figured out how the API worked, I started thiking of ways the API could be
+                        |built into a web app, and so my adventure began.
+                    br
+                    p(class='is-size-5')
+                        |Through the process of building this site I have learned how to use and implement
+                        |the techologies below, which have all been used in conjection to make this site function.
+                    br
+    div(class='section')
+        div(class='container')
+            div(class='columns is-centered')
+                div(class='column')
+                    article(class='media notification is-link')
+                        figure(class='media-left')
+                            p(class='image is-64x64')
+                                img(src='images/node.png')
+                        div(class='media-content')
+                            div(class='content')
+                                h1(class='title is-size-4')
+                                    a(href='https://nodejs.org/en/') Node JS
+                                p(class='is-size-6') As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. Many connections can be handled concurrently. Upon each connection, the callback is fired, but if there is no work to be done, Node.js will sleep.
+                div(class='column') 
+                    article(class='media notification is-link')
+                        figure(class='media-left')
+                            p(class='image is-64x64')
+                                img(src='images/pug.svg')
+                        div(class='media-content')
+                            div(class='content')
+                                h1(class='title is-size-4')
+                                    a(href='https://pugjs.org') Pug
+                                p(class='is-size-6') Pug is a high-performance template engine heavily influenced by Haml and implemented with JavaScript for Node.js and browsers.
+
+                div(class='column') 
+                    article(class='media notification is-link')
+                        figure(class='media-left')
+                            p(class='image is-64x64' href='https://bulma.io/')
+                                img(src='images/bulma.png')
+                        div(class='media-content')
+                            div(class='content')
+                                h1(class='title is-size-4')
+                                    a(href='https://bulma.io/') Bulma
+                                p(class='is-size-6') Bulma is a free, open source CSS framework based on Flexbox and used by more than 200,000 developers.
+
+        
+                
