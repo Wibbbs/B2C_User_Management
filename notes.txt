@@ -1,3 +1,17 @@
 pug -w ./views -o ./views -P
 
 test pipelines
+
+to do:
+
+soon
+make page after create user error to redirect back to 
+add build and release status from Azure DevOps badges
+dynamic check and red x icons on intpus for add new user
+check password complexity
+
+
+
+bigger stuff
+make users clickable and go to page with user info
+ajax call on add user page, with notification
