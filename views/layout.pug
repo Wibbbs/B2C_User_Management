@@ -8,6 +8,7 @@ html
             .center{display:flex; justify-content: center; align-items: center;}
 
     body
+        script(src='javascript/burgermenu.js')
         section(class='hero has-background-black')
             div(class='hero-body')
                 div(class='container')
@@ -16,29 +17,35 @@ html
                     div(class='content has-text-white')
                         p(class='is-size-4') College of Applied Arts and Techonology
         
-        section(class='section')
-            div(class='container')
-                div(class='notification is-link')
-                    span(class='content')
-                       p(class='is-size-4') Agent Portal B2C Account Management
-            div(class='container')
-                nav(class='navbar is-light', role='navigation', aria-label='main navigation')
-                    div(id='mainNavBar', class='navbar-menu is-active')
-                        div(class='navbar-start')
-                            a(class='navbar-item' href='/')
-                                span(class='icon')
-                                    i(class='fas fa-home') 
-                                span(class='content') Home
-                            a(class='navbar-item' href='/users')
-                                span(class='icon')
-                                    i(class='fas fa-address-book') 
-                                span(class='content') User List
-                            a(class='navbar-item' href='/adduser')
-                                span(class='icon')
-                                    i(class='fas fa-user-plus') 
-                                span(class='content') New User
-
+        
+        nav(class='navbar is-light', role='navigation', aria-label='main navigation')
+            nav(class='navbar-brand')
+                a(class='navbar-item' href='/')
+                    span(class='icon')
+                        i(class='fas fa-home') 
+                    span(class='content') Home
+                a(role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='navmenu')
+                    span(aria-hidden='true')
+                    span(aria-hidden='true')
+                    span(aria-hidden='true')
+            div(class='navbar-menu' id='navmenu')
+                div(class='navbar-start')
+                    a(class='navbar-item' href='/users')
+                        span(class='icon')
+                            i(class='fas fa-address-book') 
+                        span(class='content') User List
+                    a(class='navbar-item' href='/adduser')
+                        span(class='icon')
+                            i(class='fas fa-user-plus') 
+                        span(class='content') New User
+                div(class='navbar-end')
+                        a(class='navbar-item' href='/')
+                            span(class='icon')
+                                i(class='fas fa-sign-in-alt')
+                            span(class='content') Log In
+                        
         block content
+            
 
     footer(class=footer)
         br

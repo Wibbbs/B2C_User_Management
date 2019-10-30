@@ -12,6 +12,8 @@ function validateForm() {
     document.getElementById('confirm_password').classList.remove('is-danger')
     document.getElementById('conflabel').innerHTML = 'Passwords Match';
     //document.getElementById('button').disabled = false;
+    document.getElementById('password_check_icon').classList.remove('fa-exclamation')
+    document.getElementById('password_check_icon').classList.add('fa-check')
     passwords_match = true;
   }
   else {
@@ -22,6 +24,8 @@ function validateForm() {
     document.getElementById('confirm_password').classList.add('is-danger')
     document.getElementById('conflabel').innerHTML = 'Passwords Do Not Match';
     //document.getElementById('button').disabled = true;
+    document.getElementById('password_check_icon').classList.add('fa-exclamation')
+    document.getElementById('password_check_icon').classList.remove('fa-check')
     passwords_match = false;
   }
 
@@ -32,6 +36,8 @@ function validateForm() {
     document.getElementById('email_label').classList.remove('is-danger')
     document.getElementById('email_input').classList.add('is-success')
     document.getElementById('email_input').classList.remove('is-danger')
+    document.getElementById('email_check_icon').classList.remove('fa-exclamation')
+    document.getElementById('email_check_icon').classList.add('fa-check')
     email_valid = true;
   }
   else{
@@ -40,6 +46,8 @@ function validateForm() {
     document.getElementById('email_label').classList.add('is-danger')
     document.getElementById('email_input').classList.remove('is-success')
     document.getElementById('email_input').classList.add('is-danger')
+    document.getElementById('email_check_icon').classList.add('fa-exclamation')
+    document.getElementById('email_check_icon').classList.remove('fa-check')
     email_valid = false;
   }
 
