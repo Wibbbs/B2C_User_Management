@@ -15,3 +15,8 @@ check password complexity
 bigger stuff
 make users clickable and go to page with user info
 ajax call on add user page, with notification
+
+
+https://codeforgeek.com/express-nodejs-tutorial/
+
+https://www.tutorialsteacher.com/nodejs/nodejs-modules

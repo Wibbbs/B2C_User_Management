@@ -1,8 +1,8 @@
 var AuthenticationContext = require('adal-node').AuthenticationContext;
 var request = require('request');
 
-jsonTemp = new Object()
-
+//This creates a temporary JSON object containing new USER data that was only used for testing/debugging.
+/*jsonTemp = new Object()
 jsonTemp = {
     "odata.metadata": "https://graph.windows.net/andrewtestingb2c.onmicrosoft.com/$metadata#directoryObjects",
     "value": [
@@ -72,8 +72,8 @@ jsonTemp = {
             "userType": "Member"
           }
     ]
-}
- 
+}*/
+
 var authorityHostUrl = 'https://login.windows.net';
 var tenant = 'andrewtestingb2c.onmicrosoft.com'; // AAD Tenant name.
 var authorityUrl = authorityHostUrl + '/' + tenant;
@@ -81,25 +81,27 @@ var applicationId = '9d0673fa-34d6-4124-a5f2-163350e333fc'; // Application Id of
 var clientSecret = '6rujU/1F/FnjENR1w1s05XWX6a+DdxBFCELsJM3AAWs='; // Secret generated for app. Read this environment variable.
 var resource = '00000002-0000-0000-c000-000000000000'; // URI that identifies the resource for which the token is valid.
 
-
-
 const userRoutes = (app, fs) => {
-
-    // variables
-    var jsonres = ' ';
-
+   
     // READ
     app.get('/users', (req, res) => {       
+        
+        //Variables
         var context = new AuthenticationContext(authorityUrl);
+        //Temporary varibale used to store the token for debugging
         var tokenstring; 
+        // jsonres variable will hold the json respone that comes back from the B2C API
+        var jsonres = ' ';
         
         context.acquireTokenWithClientCredentials(resource, applicationId, clientSecret, function(err, tokenResponse) {
         if (err) {
             console.log('well that didn\'t work: ' + err.stack);
             res.send(err.name);
         } else {
+            //Log the token info that was returned to the console
             //console.log(tokenResponse);
-
+            
+            //Build the request (URL and Headers including token heard) to send to the API for the request
             const options = {
                 url: 'https://graph.windows.net/andrewtestingb2c.onmicrosoft.com/users?api-version=1.6',
                 headers: {
@@ -108,12 +110,11 @@ const userRoutes = (app, fs) => {
                 }
             };
             
+            //Call the API
             function callback(error, response, body) {
                 if (!error && response.statusCode == 200) {
                 jsonres = JSON.parse(body);
                 //console.log(jsonres);
-                //console.log(info.stargazers_count + " Stars");
-                //console.log(info.forks_count + " Forks");
 
                 var arrValues = jsonres.value;
                 var arrsignInNamres = [];
@@ -149,6 +150,10 @@ const userRoutes = (app, fs) => {
 
         //res.send(tokenstring);
         //res.send(JSON.parse(data));     
+    });
+
+    app.get('/users/two', (req, res) => {
+            res.send('2');
     });
 };
 
