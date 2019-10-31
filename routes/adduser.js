@@ -35,7 +35,8 @@ const adduserRoutes = (app, fs) => {
                 var request = require('request');
                 
                 //Build the API request object with the URL and json object and token header and send post.
-                request.post({
+                request.post({ //(options,callback)
+                    //options for the api call
                     headers: {
                         'User-Agent': 'request',
                         'Authorization': 'Bearer ' + tokenResponse.accessToken
@@ -44,6 +45,7 @@ const adduserRoutes = (app, fs) => {
                     json: userJson
                 },
 
+                    // callback funtion that is called after the API request is done
                     function (error, response, body) {
                         if (!error){
                             console.log(body);
@@ -67,9 +69,6 @@ const adduserRoutes = (app, fs) => {
                             res.send(error);
                         }
                     });
-
-                //request(options, callback);
-
             };
         });
     });

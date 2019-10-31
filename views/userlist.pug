@@ -2,25 +2,24 @@ extends layout.pug
 
 block content
     section(class='section')
-        div(class='columns is-centered')
-            div(class='column is-four-fifths-tablet')
-                p(class='is-size-3') Tenant: #{tenant}
-                    table(class='table is-bordered is-striped is-hoverable is-fullwidth')
-                        thead
-                            tr
-                                th DisplayName
-                                th Sign In Name
-                                th ObjectID
-                                th Created Date/Time
-                        tbody
-                            each user in data
-                                tr
-                                    td #{user.displayName}
-                                    if user.signInNames.length
-                                        td #{user.signInNames[0].value}
-                                    else
-                                        td No signInNames
-                                    td #{user.objectId}
-                                    td #{user.createdDateTime}
+        p(class='is-size-4') Tenant: #{tenant}
+        br
+        table(class='table is-bordered is-striped is-hoverable is-fullwidth')
+            thead
+                tr
+                    th DisplayName
+                    th Sign In Name
+                    th ObjectID
+                    th Created Date/Time
+            tbody
+                each user in data
+                    tr
+                        td #{user.displayName}
+                        if user.signInNames.length
+                            td #{user.signInNames[0].value}
+                        else
+                            td No signInNames
+                        td #{user.objectId}
+                        td #{user.createdDateTime}
 
 
