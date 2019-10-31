@@ -74,18 +74,48 @@ jsonTemp = {
     ]
 }*/
 
+/* Moved into the route to update dyamically
 var authorityHostUrl = 'https://login.windows.net';
 var tenant = 'andrewtestingb2c.onmicrosoft.com'; // AAD Tenant name.
 var authorityUrl = authorityHostUrl + '/' + tenant;
 var applicationId = '9d0673fa-34d6-4124-a5f2-163350e333fc'; // Application Id of app registered under AAD.
 var clientSecret = '6rujU/1F/FnjENR1w1s05XWX6a+DdxBFCELsJM3AAWs='; // Secret generated for app. Read this environment variable.
-var resource = '00000002-0000-0000-c000-000000000000'; // URI that identifies the resource for which the token is valid.
+var resource = '00000002-0000-0000-c000-000000000000'; // URI that identifies the resource for which the token is valid.*/
 
 const userRoutes = (app, fs) => {
    
     // READ
-    app.get('/users', (req, res) => {       
+    app.get('/users', (req, res) => {   
         
+        var tenant = ' '; // AAD Tenant name.
+        var authorityHostUrl = 'https://login.windows.net';
+        var authorityUrl = ' ';
+        var applicationId = ' '; // Application Id of app registered under AAD.
+        var clientSecret = ' '; // Secret generated for app. Read this environment variable.
+        var resource = '00000002-0000-0000-c000-000000000000'; // URI that identifies the resource for which the token is valid.
+
+        if(!req.query.tenant){
+            res.render('userlist.pug')
+        }
+        else if (req.query.tenant=='andrewtestingb2c'){
+            tenant='andrewtestingb2c.onmicrosoft.com';
+            authorityUrl = authorityHostUrl + '/' + tenant;
+            applicationId = '9d0673fa-34d6-4124-a5f2-163350e333fc';
+            clientSecret = '6rujU/1F/FnjENR1w1s05XWX6a+DdxBFCELsJM3AAWs=';
+        }
+        else if(req.query.tenant=='IAPSBXB2C'){
+            tenant='IAPSBXB2C.onmicrosoft.com';
+            authorityUrl = authorityHostUrl + '/' + tenant;
+        }
+        else if(req.query.tenant=='IAPDEVB2C'){
+            tenant='IAPDEVB2C.onmicrosoft.com';
+            authorityUrl = authorityHostUrl + '/' + tenant;
+        }
+        else{
+            res.send('Error This is not a valid B2C tenant.');
+            authorityUrl = authorityHostUrl + '/' + tenant;
+        }
+  
         //Variables
         var context = new AuthenticationContext(authorityUrl);
         //Temporary varibale used to store the token for debugging
@@ -96,7 +126,7 @@ const userRoutes = (app, fs) => {
         //Get Token from B2C
         context.acquireTokenWithClientCredentials(resource, applicationId, clientSecret, function(err, tokenResponse) {
         if (err) {
-            console.log('well that didn\'t work: ' + err.stack);
+            console.log('Could Not Aquire Token' + err.stack);
             res.send(err.name);
         } else {
             
