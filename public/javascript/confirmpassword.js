@@ -51,6 +51,13 @@ function validateForm() {
     email_valid = false;
   }
 
+  if (document.getElementById('tenantdropdown').value == ' '){
+    document.getElementById('dropdown_warning').classList.add('is-danger')
+  }
+  else{
+    document.getElementById('dropdown_warning').classList.add('is-success')
+  }
+
   if ((email_valid == true) && (passwords_match ==  true)){
     document.getElementById('button').disabled = false;
   }

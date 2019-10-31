@@ -96,6 +96,7 @@ const userRoutes = (app, fs) => {
 
         if(!req.query.tenant){
             res.render('userlist.pug')
+            return 0;
         }
         else if (req.query.tenant=='andrewtestingb2c'){
             tenant='andrewtestingb2c.onmicrosoft.com';

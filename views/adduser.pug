@@ -4,9 +4,18 @@ block content
     section(class='section')
         div(class='columns is-centered')
             div(class='column is-one-third-desktop is-half-tablet')
-                br
+                
                 form(action='/adduser' method='post')
+                    label(class='label') B2C Tenant
                     div(class='field')
+                        div(class='select is-danger')
+                            select(id='tenantdropdown' onchange='validateForm()')
+                                option(value =' ' selected disabled hidden) Choose Tenant
+                                option(value='andrewtestingb2c') andrewtestingb2c
+                                option(value='IAPSBXB2C') IAPSBXB2C
+                                option(value='IAPDEVB2C') IAPDEVB2C
+                        p(class='help is-danger' id='dropdown_warning') Please select a tenant
+                    div(class='field') 
                         label(class='label') Email Address
                         div(class='control has-icons-left has-icons-right' id='email_div')
                             input(class='input is-danger' type='Email Address' placeholder='Enter Email Address' name='email' id='email_input' oninput='validateForm()' required)
@@ -41,5 +50,6 @@ block content
                         div(class='control')
                             button(class='button is-link' id='button' disabled) Submit
     script(src='javascript/confirmpassword.js')
+    script(src='javascript/dropdowntoggle.js')
 
                 
