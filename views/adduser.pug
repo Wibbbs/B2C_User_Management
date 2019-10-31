@@ -15,10 +15,11 @@ block content
                             span(class='icon is-small is-right')
                                 i(class='fas fa-exclamation'  id='email_check_icon')
                             p(class='help is-danger' id='email_label') Not a valid Email
+                    label(class='label') Password
                     p(class="is-size-7") Password must have a minimum 8 characters and maximum 64 characters in length and include 3 of 4 following character classes - uppercase, lowercase, number, symbol. If complexity is not met you will recive an error on the next page.
                     br
                     div(class='field')
-                        label(class='label') Password
+                        
                         div(class='control has-icons-left')
                             input(class='input' type='password' placeholder='Password' name='password' id='password' onkeyup='validateForm()' required)
                             span(class='icon is-small is-left')

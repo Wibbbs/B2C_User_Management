@@ -19,16 +19,20 @@ html
                         p(class='is-size-4') College of Applied Arts and Techonology
         
         
+        //Main navbar Block
         nav(class='navbar is-light', role='navigation', aria-label='main navigation')
+            //navBar brand
             nav(class='navbar-brand')
                 a(class='navbar-item' href='/')
                     span(class='icon')
                         i(class='fas fa-home') 
                     span(class='content') Home
+                //Hamburger Menu Setup
                 a(role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='navmenu')
                     span(aria-hidden='true')
                     span(aria-hidden='true')
                     span(aria-hidden='true')
+            //Start navBar Menu
             div(class='navbar-menu' id='navmenu')
                 div(class='navbar-start')
                     a(class='navbar-item' href='/users')
@@ -44,6 +48,10 @@ html
                             span(class='icon')
                                 i(class='fas fa-sign-in-alt')
                             span(class='content') Log In
+                        a(class='navbar-item' href='/changenotes')
+                            span(class='icon')
+                                i(class='fas fa-clipboard-list')
+                            span(class='content') Change Notes
                         
         block content
             
