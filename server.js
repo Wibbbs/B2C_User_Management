@@ -11,6 +11,7 @@ const app = express();
 // (we'll be using this later to serve our JSON files
 const fs = require('fs');
 
+
 // configure our express instance with some body-parser settings 
 // including handling JSON data
 app.use(bodyParser.json());
@@ -18,6 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
 app.set('view engine', 'pug');
+
+
+
 
 // this is where we'll handle our various routes from
 const routes = require('./routes/routes.js')(app, fs);
