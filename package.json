@@ -27,7 +27,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js -e js,ejs,json,pug"
+    "start": "nodemon server.js -e js,ejs,json,pug,env"
   },
   "author": "",
   "license": "ISC"

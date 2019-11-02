@@ -6,7 +6,12 @@ const loginRoutes = (app, fs) => {
     var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
     var passport = require('passport');
     var bunyan = require('bunyan');
-    var destroySessionUrl = 'https://login.microsoftonline.com/andrewtestingb2c.onmicrosoft.com/oauth2/v2.0/logout?p=B2C_1_signinv2&post_logout_redirect_uri=http://localhost:3001'
+    var destroySessionUrl = process.env.authB2C_destroySessionUrl;
+    var cookiekeysJson = [{ "key": process.env.cookieEncryptionKey1, "iv": process.env.cookieEncryptionIV1 }];
+    cookiekeysJson.push({ "key": process.env.cookieEncryptionKey2, "iv": process.env.cookieEncryptionIV2 });
+    //console.log(cookiekeysJson);
+    
+
 
     var log = bunyan.createLogger({
         name: 'Microsoft OIDC Example Web Application'
@@ -18,12 +23,12 @@ const loginRoutes = (app, fs) => {
     };
 
     passport.serializeUser(function (user, done) {
-        console.log('serialize called');
+        //console.log('serialize called');
         done(null, user.oid);
     });
 
     passport.deserializeUser(function (oid, done) {
-        console.log('deserialze called');
+        //console.log('deserialze called');
         findByOid(oid, function (err, user) {
             done(err, user);
         });
@@ -35,37 +40,33 @@ const loginRoutes = (app, fs) => {
     var findByOid = function (oid, fn) {
         for (var i = 0, len = users.length; i < len; i++) {
             var user = users[i];
-            console.log('we are using user: ', user);
+            console.log('we are using user: ', user.displayName);
             if (user.oid === oid) {
                 return fn(null, user);
             }
         }
         return fn(null, null);
     };
-
-
+    
     //Setup Passport
     passport.use(new OIDCStrategy({
-        identityMetadata: 'https://login.microsoftonline.com/andrewtestingb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration',
-        clientID: '6316624b-bb50-45e6-b535-e88fd3eac57c',
+        identityMetadata: 'https://login.microsoftonline.com/' + process.env.authB2C_Tenant + '/v2.0/.well-known/openid-configuration',
+        clientID: process.env.authB2C_APPID,
         responseType: 'code id_token',
         responseMode: 'form_post',
-        redirectUrl: process.env.redirectURL,
+        redirectUrl: process.env.authB2C_redirectURL,
         allowHttpForRedirectUrl: true,
-        clientSecret: '30uq.2u.=fXonZJ7CVXFQPH.P[A:Qvx-',
+        clientSecret: process.env.authB2C_Secret,
         validateIssuer: true,
         isB2C: true,
         issuer: null,
         passReqToCallback: false,
         scope: ['offline_access'],
-        loggingLevel: 'info',
+        loggingLevel: process.env.loggingLevel,
         nonceLifetime: null,
         nonceMaxAmount: 5,
         useCookieInsteadOfSession: true,
-        cookieEncryptionKeys: [
-            { 'key': '12345678901234567890123456789012', 'iv': '123456789012' },
-            { 'key': 'abcdefghijklmnopqrstuvwxyzabcdef', 'iv': 'abcdefghijkl' }
-        ],
+        cookieEncryptionKeys: cookiekeysJson,
         clockSkew: null,
     },
 
@@ -104,7 +105,6 @@ const loginRoutes = (app, fs) => {
 
     app.get('/login',
         function (req, res, next) {
-            console.log('passport.authenticate called');
             passport.authenticate('azuread-openidconnect',
                 {
                     response: res,                      // required
