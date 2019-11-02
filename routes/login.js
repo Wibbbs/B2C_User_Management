@@ -50,7 +50,7 @@ const loginRoutes = (app, fs) => {
         clientID: '6316624b-bb50-45e6-b535-e88fd3eac57c',
         responseType: 'code id_token',
         responseMode: 'form_post',
-        redirectUrl: 'http://localhost:3001/auth/openid/return',
+        redirectUrl: process.env.redirectURL,
         allowHttpForRedirectUrl: true,
         clientSecret: '30uq.2u.=fXonZJ7CVXFQPH.P[A:Qvx-',
         validateIssuer: true,
