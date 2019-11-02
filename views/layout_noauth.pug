@@ -1,0 +1,50 @@
+doctype html
+html
+    head
+        title B2C Account Management
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css')
+        script(src='https://kit.fontawesome.com/419c186f24.js', crossorigin="anonymous")
+        style.
+            .center{display:flex; justify-content: center; align-items: center;}
+            .column{display:flex;}
+
+    body
+        script(src='javascript/burgermenu.js')
+        section(class='hero has-background-black')
+            div(class='hero-body')
+                div(class='container')
+                    figure(class='image')
+                        img(src='images/seneca-logo.svg', style='max-width: 256px;')
+                    div(class='content has-text-white')
+                        p(class='is-size-4') College of Applied Arts and Techonology
+        
+        
+        //Main navbar Block
+        nav(class='navbar is-light', role='navigation', aria-label='main navigation')
+            //navBar brand
+            nav(class='navbar-brand')
+                a(class='navbar-item' href='/')
+                    span(class='icon')
+                        i(class='fas fa-home') 
+                    span(class='content') Home
+                //Hamburger Menu Setup
+                a(role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='navmenu')
+                    span(aria-hidden='true')
+                    span(aria-hidden='true')
+                    span(aria-hidden='true')
+            //Start navBar Menu
+            div(class='navbar-menu' id='navmenu')
+                div(class='navbar-end')
+                        a(class='navbar-item' href='/login/?p=B2C_1_signinv2')
+                            span(class='icon')
+                                i(class='fas fa-sign-in-alt')
+                            span(class='content') Log In
+                        
+        block content
+            
+
+    footer(class=footer)
+        br
+        br
+        div(class='content has-text-centered')
+            p © #{new Date().getFullYear()} Andrew Wiebe

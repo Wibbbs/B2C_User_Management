@@ -20,3 +20,6 @@ ajax call on add user page, with notification
 https://codeforgeek.com/express-nodejs-tutorial/
 
 https://www.tutorialsteacher.com/nodejs/nodejs-modules
+
+
+"passport-azure-ad": "^4.1.0",

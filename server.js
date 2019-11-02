@@ -15,12 +15,25 @@ const fs = require('fs');
 // configure our express instance with some body-parser settings 
 // including handling JSON data
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'))
 app.set('view engine', 'ejs');
 app.set('view engine', 'pug');
 
 
+var methodOverride = require('method-override');
+var expressSession = require('express-session');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
+var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
+var passport = require('passport');
+var bunyan = require('bunyan');
+
+app.use(methodOverride());
+app.use(cookieParser());
+app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static('public'))
 
 
 // this is where we'll handle our various routes from

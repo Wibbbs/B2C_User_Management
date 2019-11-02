@@ -1,15 +1,15 @@
-extends layout.pug
+extends layout_noauth.pug
 
 block content
     secton(class='section')
         div(class='columns is-centered')
-            div(class='column is-11') 
+            div(class='column is-11')       
                 article(class='message')
                     div(class='message-header')
                         p Welcome
                     div(class='message-body')
                         p(class='is-size-6')
-                            |This site was built as a learning project to learn web development.
+                            |This site is being built as a learning project to learn web development.
                             |I had a need to test and use some Microsoft Azure B2C APIs.
                             |Once I figured out how the API worked, I started thiking of ways the API could be
                             |built into a web app, and so my adventure began.
@@ -18,6 +18,9 @@ block content
                             |Through the process of building this site I have learned how to use and implement
                             |the techologies below. The are all currently in use in dvelopment of this site.
                         br
+
+
+                    
         div(class='container is-fluid')
             div(class='columns is-centered')
                  div(class='column is-11')

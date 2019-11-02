@@ -1,0 +1,82 @@
+extends layout_auth.pug
+
+block content
+    secton(class='section')
+        div(class='container is-fluid')
+            div(class='columns is-centered')
+                div(class='column is-11')
+                    div(class='columns')
+                        div(class='column')
+                            article(class='message')
+                                div(class='message-header')
+                                    p Welcome, #{user.displayName}
+                                div(class='message-body')
+                                    p(class='is-size-6')
+                                        |This site was built as a learning project to learn web development.
+                                        |I had a need to test and use some Microsoft Azure B2C APIs.
+                                        |Once I figured out how the API worked, I started thiking of ways the API could be
+                                        |built into a web app, and so my adventure began.
+                                    br
+                                    p(class='is-size-6')
+                                        |Through the process of building this site I have learned how to use and implement
+                                        |the techologies below. The are all currently in use in dvelopment of this site.
+                                    br
+                        div(class='column')
+                            if (user)
+                                article(class='message')
+                                    div(class='message-header')
+                                        p User Information
+                                    div(class='message-body')
+                                        p(class='is-size-6')
+                                            table(class='table is-bordered is-striped is-hoverable is-fullwidth')
+                                                tbody
+                                                    tr 
+                                                        td Display Name
+                                                        td #{user.displayName}
+                                                    tr
+                                                        td City
+                                                        td #{user._json.city}
+                                                    tr
+                                                        td Email
+                                                        td #{user._json.emails}
+                                                    tr 
+                                                        td OID
+                                                        td #{user.oid}
+                                                    tr 
+                                                        td Job Title
+                                                        td #{user._json.jobTitle}
+        div(class='container is-fluid')
+            div(class='columns is-centered')
+                 div(class='column is-11')
+                    div(class='columns')
+                        div(class='column')
+                            article(class='media notification is-link')
+                                figure(class='media-left')
+                                    p(class='image is-64x64')
+                                        img(src='images/node.png')
+                                div(class='media-content')
+                                    div(class='content')
+                                        h1(class='title')
+                                            a(href='https://nodejs.org/en/') Node JS
+                                        p(class='is-size-7') As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. Many connections can be handled concurrently.
+                        div(class='column') 
+                            article(class='media notification is-link')
+                                figure(class='media-left')
+                                    p(class='image is-64x64')
+                                        img(src='images/pug.svg')
+                                div(class='media-content')
+                                    div(class='content')
+                                        h1(class='title')
+                                            a(href='https://pugjs.org') Pug
+                                        p(class='is-size-7') Pug is a high-performance template engine heavily influenced by Haml and implemented with JavaScript for Node.js and browsers.
+
+                        div(class='column') 
+                            article(class='media notification is-link')
+                                figure(class='media-left')
+                                    p(class='image is-64x64')
+                                        img(src='images/bulma.png' href='https://bulma.io/')
+                                div(class='media-content')
+                                    div(class='content')
+                                        h2(class='title')
+                                            a(href='https://bulma.io/') Bulma
+                                        p(class='is-size-7') Bulma is a free, open source CSS framework based on Flexbox and used by more than 200,000 developers.
