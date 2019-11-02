@@ -130,7 +130,7 @@ const userRoutes = (app, fs) => {
             context.acquireTokenWithClientCredentials(resource, applicationId, clientSecret, function (err, tokenResponse) {
                 if (err) {
                     console.log('Could Not Aquire Token' + err.stack);
-                    res.send(err.name);
+                    res.render('error.pug');
                 } else {
 
                     //console.log(tokenResponse);

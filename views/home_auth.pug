@@ -7,23 +7,26 @@ block content
                 div(class='column is-11')
                     div(class='columns')
                         div(class='column')
-                            article(class='message')
+                            article(class='message is-success')
                                 div(class='message-header')
                                     p Welcome, #{user.displayName}
                                 div(class='message-body')
-                                    p(class='is-size-6')
-                                        |This site was built as a learning project to learn web development.
-                                        |I had a need to test and use some Microsoft Azure B2C APIs.
-                                        |Once I figured out how the API worked, I started thiking of ways the API could be
-                                        |built into a web app, and so my adventure began.
-                                    br
-                                    p(class='is-size-6')
-                                        |Through the process of building this site I have learned how to use and implement
-                                        |the techologies below. The are all currently in use in dvelopment of this site.
+                                    p(class='is-size-6') This site is being built to allow management of multiple B2C tenants within Azure. You can curently perform the follwing tasks.
+                                    div(class='content')
+                                        ul
+                                            li List users from the following Azure B2C tenants.
+                                                ul
+                                                    li andrewtestingb2c
+                                                    li IAPSBXB2C
+                                                    li IAPDEVB2C
+                                                    li IAPTSTB2C
+                                            li Add a new user to the following B2C
+                                                ul 
+                                                    li andrewtestingb2c         
                                     br
                         div(class='column')
                             if (user)
-                                article(class='message')
+                                article(class='message is-success')
                                     div(class='message-header')
                                         p User Information
                                     div(class='message-body')
@@ -50,7 +53,7 @@ block content
                  div(class='column is-11')
                     div(class='columns')
                         div(class='column')
-                            article(class='media notification is-link')
+                            article(class='media notification is-info')
                                 figure(class='media-left')
                                     p(class='image is-64x64')
                                         img(src='images/node.png')
@@ -60,7 +63,7 @@ block content
                                             a(href='https://nodejs.org/en/') Node JS
                                         p(class='is-size-7') As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. Many connections can be handled concurrently.
                         div(class='column') 
-                            article(class='media notification is-link')
+                            article(class='media notification is-info')
                                 figure(class='media-left')
                                     p(class='image is-64x64')
                                         img(src='images/pug.svg')
@@ -71,7 +74,7 @@ block content
                                         p(class='is-size-7') Pug is a high-performance template engine heavily influenced by Haml and implemented with JavaScript for Node.js and browsers.
 
                         div(class='column') 
-                            article(class='media notification is-link')
+                            article(class='media notification is-info')
                                 figure(class='media-left')
                                     p(class='image is-64x64')
                                         img(src='images/bulma.png' href='https://bulma.io/')
